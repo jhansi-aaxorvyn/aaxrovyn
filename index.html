@@ -11,6 +11,8 @@
 <link rel="icon" type="image/png" href="logo-dark-sm.webp">
 <link rel="apple-touch-icon" href="logo-dark-sm.webp">
 <link rel="preload" as="image" href="logonew_AAXORVYN-sm.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="logo-dark-sm.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="logo-light-sm.webp" type="image/webp" fetchpriority="high">
 
 <!-- Search Engine Verification Placeholders -->
 <!-- <meta name="google-site-verification" content="ADD_GOOGLE_VERIFICATION_TOKEN_HERE"> -->
@@ -681,8 +683,8 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       <div class="globe" aria-hidden="true">
         <iframe data-src="globe-local.html" title="Rotating dotted world globe" loading="lazy"></iframe>
       </div>
-      <img class="globe-logo logo-dark" src="logo-dark-sm.webp" alt="AAXORVYN Solutions Dark Logo" width="120" height="120" loading="lazy">
-      <img class="globe-logo logo-light" src="logo-light-sm.webp" alt="AAXORVYN Solutions Light Logo" width="120" height="120" loading="lazy">
+      <img class="globe-logo logo-dark" src="logo-dark-sm.webp" alt="AAXORVYN Solutions Dark Logo" width="120" height="120" loading="eager" fetchpriority="high">
+      <img class="globe-logo logo-light" src="logo-light-sm.webp" alt="AAXORVYN Solutions Light Logo" width="120" height="120" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -874,7 +876,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       <form id="cform" novalidate>
         <div class="row">
           <div class="fld"><label for="fn">Name *</label><input id="fn" type="text" required placeholder="Your name"></div>
-          <div class="fld"><label for="fe">Email *</label><input id="fe" type="email" required placeholder="you@company.com"></div>
+          <div class="fld"><label for="fe">Email *</label><input id="fe" type="email" required placeholder="name (at) company.com"></div>
         </div>
         <div class="row">
           <div class="fld"><label for="fc">Company</label><input id="fc" type="text" placeholder="Company / brand"></div>
