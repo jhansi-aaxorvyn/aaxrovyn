@@ -230,6 +230,15 @@
   ]
 }
 </script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-AAXORVYN01"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-AAXORVYN01');
+</script>
+
 <script>
 /* set theme BEFORE paint — no flash */
 (function(){var t=null;try{t=localStorage.getItem('ax-theme')}catch(e){}
@@ -240,7 +249,6 @@ document.documentElement.setAttribute('data-theme',t);})();
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-<link rel="preload" href="newlogo_3D.glb" as="fetch" crossorigin="anonymous">
 <style>
 /* ================= THEME TOKENS ================= */
 :root,[data-theme="dark"]{
@@ -606,8 +614,14 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
 <!-- PRELOADER -->
 <div class="pre" id="pre">
   <div class="lwrap">
-    <img src="logo-dark.png" alt="AAXORVYN Solutions" class="logo-dark">
-    <img src="logo-light.png" alt="AAXORVYN Solutions" class="logo-light">
+    <picture>
+      <source srcset="logo-dark-sm.webp" type="image/webp">
+      <img src="logo-dark.png" alt="AAXORVYN Solutions Dark Logo" class="logo-dark" width="60" height="60">
+    </picture>
+    <picture>
+      <source srcset="logo-light-sm.webp" type="image/webp">
+      <img src="logo-light.png" alt="AAXORVYN Solutions Light Logo" class="logo-light" width="60" height="60">
+    </picture>
   </div>
   <div class="pre-track"><i id="preBar"></i></div>
   <div class="pre-num" id="preNum">000</div>
@@ -618,7 +632,10 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
 <header class="nav" id="nav">
   <div class="container nav-in">
     <a href="/" class="brand" aria-label="AAXORVYN Solutions — home">
-      <img src="logonew_AAXORVYN.png" alt="AAXORVYN Solutions — Smart Solutions for Every Business" class="brand-title">
+      <picture>
+        <source srcset="logonew_AAXORVYN-sm.webp" type="image/webp">
+        <img src="logonew_AAXORVYN.png" alt="AAXORVYN Solutions — Smart Solutions for Every Business" class="brand-title" width="210" height="32">
+      </picture>
     </a>
     <ul class="nav-links">
       <li><a href="/#services" data-scr>What We Build</a></li>
@@ -672,10 +689,16 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
 
     <div class="model-zone rvh" style="--d:.5s">
       <div class="globe" aria-hidden="true">
-        <iframe src="https://tkartik.com/globe-to-flat-map/van-der-grinten-map.html?hex=ffffff&amp;ocean=05060a&amp;bg=05060a&amp;landOpacity=0.8&amp;globeOpacity=0.45&amp;density=750" title="Rotating dotted world globe" loading="eager"></iframe>
+        <iframe src="globe-local.html" title="Rotating dotted world globe" loading="lazy"></iframe>
       </div>
-      <img class="globe-logo logo-dark" src="logo-dark.png" alt="AAXORVYN Solutions">
-      <img class="globe-logo logo-light" src="logo-light.png" alt="AAXORVYN Solutions">
+      <picture>
+        <source srcset="logo-dark-sm.webp" type="image/webp">
+        <img class="globe-logo logo-dark" src="logo-dark.png" alt="AAXORVYN Solutions Dark Logo" width="120" height="120" loading="lazy">
+      </picture>
+      <picture>
+        <source srcset="logo-light-sm.webp" type="image/webp">
+        <img class="globe-logo logo-light" src="logo-light.png" alt="AAXORVYN Solutions Light Logo" width="120" height="120" loading="lazy">
+      </picture>
     </div>
   </div>
 </section>
@@ -697,7 +720,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
         <p class="note rv" style="--d:.15s">AAXORVYN Solutions designs and develops custom software, websites and mobile apps that solve real business challenges. No templates, no shortcuts — every solution is tailored to your unique needs and goals, delivered with the highest standards of security, performance and reliability, and supported long after launch.</p>
       </div>
       <div class="state-logo rv" style="--d:.2s">
-        <model-viewer src="newlogo_3D.glb" poster="logonew_AAXORVYN.png" alt="A 3D model of the AAXORVYN logo" camera-controls auto-rotate loading="eager" reveal="auto" shadow-intensity="1" exposure="1.1" interaction-prompt="none"></model-viewer>
+        <model-viewer src="newlogo_3D.glb" poster="logonew_AAXORVYN.png" alt="A 3D model of the AAXORVYN logo" camera-controls auto-rotate loading="lazy" reveal="auto" shadow-intensity="1" exposure="1.1" interaction-prompt="none"></model-viewer>
       </div>
     </div>
     <div class="stats rv" style="--d:.2s">
@@ -858,7 +881,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       <h2 class="rv">Tell us where it <span class="chr">hurts.</span></h2>
       <p class="rv" style="--d:.1s">Every build starts with an honest conversation about your business — the workflows, the bottlenecks, the ambitions.</p>
       <div class="cline rv" style="--d:.2s">
-        <em>Email</em><a href="mailto:info@aaxorvyn.com">info@aaxorvyn.com</a>
+        <em>Email</em><a href="mailto:info&#64;aaxorvyn&#46;com">&#105;&#110;&#102;&#111;&#64;&#97;&#97;&#120;&#111;&#114;&#118;&#121;&#110;&#46;&#99;&#111;&#109;</a>
         <em>Response</em><a href="#contact">Within 24 hours</a>
         <em>Engagement</em><a href="#contact">Global · Remote-first</a>
       </div>
@@ -900,13 +923,19 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
     </div>
     <div class="f-grid">
       <div class="f-brand">
-        <img src="logo-dark.png" alt="AAXORVYN Solutions" class="logo-dark">
-        <img src="logo-light.png" alt="AAXORVYN Solutions" class="logo-light">
+        <picture>
+          <source srcset="logo-dark-sm.webp" type="image/webp">
+          <img src="logo-dark.png" alt="AAXORVYN Solutions Dark Logo" class="logo-dark" width="160" height="50" loading="lazy">
+        </picture>
+        <picture>
+          <source srcset="logo-light-sm.webp" type="image/webp">
+          <img src="logo-light.png" alt="AAXORVYN Solutions Light Logo" class="logo-light" width="160" height="50" loading="lazy">
+        </picture>
         <p>Custom software, websites and mobile apps that solve real business challenges — with long-term support built in.</p>
       </div>
       <div class="f-col"><h5>Studio</h5><a href="/#studio">Who We Are</a><a href="/#why">Why Aaxorvyn</a><a href="/#process">Process</a><a href="/#faq">FAQ</a></div>
       <div class="f-col"><h5>What We Build</h5><a href="/#services">Software</a><a href="/#services">Websites</a><a href="/#services">Mobile Apps</a><a href="/#industries">Industries</a></div>
-      <div class="f-col"><h5>Connect</h5><a href="mailto:info@aaxorvyn.com">info@aaxorvyn.com</a><a href="#">LinkedIn ↗</a><a href="#">X / Twitter ↗</a><a href="#">Instagram ↗</a></div>
+      <div class="f-col"><h5>Connect</h5><a href="mailto:info&#64;aaxorvyn&#46;com">&#105;&#110;&#102;&#111;&#64;&#97;&#97;&#120;&#111;&#114;&#118;&#121;&#110;&#46;&#99;&#111;&#109;</a><a href="#">LinkedIn ↗</a><a href="#">X / Twitter ↗</a><a href="#">Instagram ↗</a></div>
     </div>
     <div class="f-bot">
       <span>© <span id="yr"></span> AAXORVYN Solutions — All rights reserved</span>
