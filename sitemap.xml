@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://aaxorvyn.com/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aaxorvyn.com/logo-dark.png</image:loc>
+      <image:title>AAXORVYN Solutions Logo</image:title>
+      <image:caption>AAXORVYN Solutions — Custom Software, Web &amp; Mobile App Development</image:caption>
+    </image:image>
+  </url>
+</urlset>

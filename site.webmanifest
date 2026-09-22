@@ -1,0 +1,18 @@
+{
+  "name": "AAXORVYN Solutions",
+  "short_name": "AAXORVYN",
+  "description": "Smart Solutions for Every Business. Custom Software, Websites & Mobile Apps.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05060a",
+  "theme_color": "#05060a",
+  "icons": [
+    {
+      "src": "logo-dark.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}
