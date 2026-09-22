@@ -682,8 +682,8 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       <div class="globe" aria-hidden="true">
         <iframe data-src="globe-local.html" title="Rotating dotted world globe" loading="lazy"></iframe>
       </div>
-      <img class="globe-logo logo-dark" src="logo-dark-sm.webp" alt="AAXORVYN Solutions Dark Logo" width="120" height="120" loading="eager" fetchpriority="high">
-      <img class="globe-logo logo-light" src="logo-light-sm.webp" alt="AAXORVYN Solutions Light Logo" width="120" height="120" loading="eager" fetchpriority="high">
+      <img class="globe-logo logo-dark" src="logo-dark-sm.webp" alt="AAXORVYN Solutions Dark Logo" width="360" height="360" loading="eager" fetchpriority="high">
+      <img class="globe-logo logo-light" src="logo-light-sm.webp" alt="AAXORVYN Solutions Light Logo" width="360" height="360" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -1100,8 +1100,9 @@ function initGlobe(){
   const gf=document.querySelector(".globe iframe");
   if(gf&&gf.dataset.src) gf.src=gf.dataset.src;
 }
-setTimeout(initGlobe,5000);
 window.addEventListener("scroll",initGlobe,{once:true,passive:true});
+window.addEventListener("mousemove",initGlobe,{once:true,passive:true});
+window.addEventListener("touchstart",initGlobe,{once:true,passive:true});
 
 function loadMV(){
   if(window.customElements&&window.customElements.get("model-viewer"))return;
@@ -1116,8 +1117,6 @@ if("IntersectionObserver" in window&&stEl){
     if(en[0].isIntersecting){loadMV();obs.disconnect();}
   },{rootMargin:"300px"});
   obs.observe(stEl);
-}else{
-  setTimeout(loadMV,3500);
 }
 </script>
 </body>
