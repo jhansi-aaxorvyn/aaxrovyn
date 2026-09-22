@@ -249,7 +249,6 @@ document.documentElement.setAttribute('data-theme',t);})();
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 <style>
 /* ================= THEME TOKENS ================= */
 :root,[data-theme="dark"]{
@@ -867,7 +866,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       <h2 class="rv">Tell us where it <span class="chr">hurts.</span></h2>
       <p class="rv" style="--d:.1s">Every build starts with an honest conversation about your business — the workflows, the bottlenecks, the ambitions.</p>
       <div class="cline rv" style="--d:.2s">
-        <em>Email</em><a href="#contact" class="email-prot" data-u="info" data-d="aaxorvyn.com">info [at] aaxorvyn.com</a>
+        <em>Email</em><a href="#contact" class="email-prot" data-m="aW5mb0BhYXhvcnZ5bi5jb20=">Contact via Email</a>
         <em>Response</em><a href="#contact">Within 24 hours</a>
         <em>Engagement</em><a href="#contact">Global · Remote-first</a>
       </div>
@@ -915,7 +914,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:4.5rem 0 2
       </div>
       <div class="f-col"><h5>Studio</h5><a href="/#studio">Who We Are</a><a href="/#why">Why Aaxorvyn</a><a href="/#process">Process</a><a href="/#faq">FAQ</a></div>
       <div class="f-col"><h5>What We Build</h5><a href="/#services">Software</a><a href="/#services">Websites</a><a href="/#services">Mobile Apps</a><a href="/#industries">Industries</a></div>
-      <div class="f-col"><h5>Connect</h5><a href="#contact" class="email-prot" data-u="info" data-d="aaxorvyn.com">info [at] aaxorvyn.com</a><a href="#">LinkedIn ↗</a><a href="#">X / Twitter ↗</a><a href="#">Instagram ↗</a></div>
+      <div class="f-col"><h5>Connect</h5><a href="#contact" class="email-prot" data-m="aW5mb0BhYXhvcnZ5bi5jb20=">Email Support</a><a href="#">LinkedIn ↗</a><a href="#">X / Twitter ↗</a><a href="#">Instagram ↗</a></div>
     </div>
     <div class="f-bot">
       <span>© <span id="yr"></span> AAXORVYN Solutions — All rights reserved</span>
@@ -1081,19 +1080,39 @@ if(fine&&!reduce)$$("[data-scr]").forEach(el=>{
 /* ---------- YEAR ---------- */
  $("#yr").textContent=new Date().getFullYear();
 
-/* ---------- EMAIL HYDRATION & DEFERRED GLOBE ---------- */
+/* ---------- EMAIL OBFORCATION & LAZY 3D ASSETS ---------- */
 $$(".email-prot").forEach(el=>{
-  const u=el.dataset.u, d=el.dataset.d;
-  if(u&&d){
-    const addr=u+"@"+d;
-    el.href="mailto:"+addr;
-    el.textContent=addr;
-  }
+  el.addEventListener("click",e=>{
+    const m=el.dataset.m;
+    if(m){e.preventDefault();location.href="mailto:"+atob(m);}
+  });
 });
-window.addEventListener("load",()=>{
+
+let globeInit=false;
+function initGlobe(){
+  if(globeInit)return;globeInit=true;
   const gf=document.querySelector(".globe iframe");
   if(gf&&gf.dataset.src) gf.src=gf.dataset.src;
-});
+}
+setTimeout(initGlobe,2400);
+window.addEventListener("scroll",initGlobe,{once:true,passive:true});
+
+function loadMV(){
+  if(window.customElements&&window.customElements.get("model-viewer"))return;
+  const s=document.createElement("script");
+  s.type="module";
+  s.src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js";
+  document.head.appendChild(s);
+}
+const stEl=document.getElementById("studio");
+if("IntersectionObserver" in window&&stEl){
+  const obs=new IntersectionObserver(en=>{
+    if(en[0].isIntersecting){loadMV();obs.disconnect();}
+  },{rootMargin:"300px"});
+  obs.observe(stEl);
+}else{
+  setTimeout(loadMV,3500);
+}
 </script>
 </body>
 </html>
