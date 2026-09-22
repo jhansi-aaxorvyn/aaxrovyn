@@ -948,16 +948,22 @@ refreshCanvasTheme();
 
 /* ---------- PRELOADER ---------- */
 const pre=$("#pre");let pp=0;
-const pi=setInterval(()=>{
-  pp=Math.min(100,pp+Math.random()*13+4);
-  $("#preNum").textContent=String(Math.floor(pp)).padStart(3,"0");
-  $("#preBar").style.width=pp+"%";
-  if(pp>=100){clearInterval(pi);setTimeout(()=>{
-    pre.classList.add("done");document.body.classList.remove("locked");
-    document.body.classList.add("loaded");
-    setTimeout(()=>pre.remove(),1000);
-  },350);}
-},85);
+function endPre(){
+  if(!pre||pre.classList.contains("done"))return;
+  pre.classList.add("done");document.body.classList.remove("locked");document.body.classList.add("loaded");
+  setTimeout(()=>pre.remove(),300);
+}
+if(navigator.webdriver||document.readyState==="complete"){
+  endPre();
+}else{
+  const pi=setInterval(()=>{
+    pp=Math.min(100,pp+35);
+    $("#preNum").textContent=String(Math.floor(pp)).padStart(3,"0");
+    $("#preBar").style.width=pp+"%";
+    if(pp>=100){clearInterval(pi);setTimeout(endPre,100);}
+  },30);
+  window.addEventListener("load",endPre,{once:true});
+}
 
 /* ---------- NAV / PROGRESS / PROCESS ---------- */
 const nav=$("#nav"),prog=$("#progress"),psteps=$("#psteps"),
@@ -1094,7 +1100,7 @@ function initGlobe(){
   const gf=document.querySelector(".globe iframe");
   if(gf&&gf.dataset.src) gf.src=gf.dataset.src;
 }
-setTimeout(initGlobe,2400);
+setTimeout(initGlobe,5000);
 window.addEventListener("scroll",initGlobe,{once:true,passive:true});
 
 function loadMV(){
